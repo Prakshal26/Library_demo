@@ -7,6 +7,9 @@ public class Users extends BaseEntity {
 
     private String password;
 
+
+    private Books books;
+
     public String getFirstName() {
         return firstName;
     }
@@ -29,5 +32,13 @@ public class Users extends BaseEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Books getBooks() {
+        return books;
+    }
+
+    public void setBooks(Books books) {
+        this.books = books;
     }
 }

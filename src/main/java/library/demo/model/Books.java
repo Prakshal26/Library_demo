@@ -8,6 +8,7 @@ public class Books extends BaseEntity {
     //private Genre genre;
 
 
+
     public Long getPrice() {
         return price;
     }

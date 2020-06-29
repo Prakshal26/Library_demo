@@ -20,6 +20,11 @@ public class BooksMapService extends AbstractService<Books,Long> implements Book
     }
 
     @Override
+    public Books findById(Long aLong) {
+        return super.findById(aLong);
+    }
+
+    @Override
     public void deleteByid(Long aLong) {
         super.deleteByid(aLong);
     }

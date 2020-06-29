@@ -1,35 +1,41 @@
 package library.demo.services.map;
 
 import library.demo.model.Users;
+import library.demo.services.UsersService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class UsersMapService extends AbstractService<Users, Long>{
+public class UsersMapService extends AbstractService<Users, Long> implements UsersService {
 
     @Override
-    Set<Users> findAll() {
+    public Set<Users> findAll() {
         return super.findAll();
     }
 
     @Override
-    Users save(Users object) {
+    public Users save(Users object) {
         return super.save(object);
     }
 
     @Override
-    void deleteByid(Long aLong) {
+     public void deleteByid(Long aLong) {
         super.deleteByid(aLong);
     }
 
     @Override
-    void delete(Users object) {
+    public Users findById(Long aLong) {
+        return super.findById(aLong);
+    }
+
+    @Override
+     public void delete(Users object) {
         super.delete(object);
     }
 
     @Override
-    String Test() {
+     public String Test() {
         return super.Test();
     }
 }

@@ -28,6 +28,8 @@ public class IssueMapService extends AbstractService<Issue,Long> {
         super.delete(object);
     }
 
+
+
     @Override
     String Test() {
         return super.Test();

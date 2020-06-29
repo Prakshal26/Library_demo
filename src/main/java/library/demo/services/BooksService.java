@@ -10,6 +10,9 @@ public interface BooksService extends CurdService<Books,Long> {
     Set<Books> findAll();
 
     @Override
+    Books findById(Long aLong);
+
+    @Override
     Books save(Books object);
 
     @Override

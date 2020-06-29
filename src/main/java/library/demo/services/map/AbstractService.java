@@ -22,6 +22,9 @@ public abstract class AbstractService  <T extends BaseEntity, ID extends Long> {
         }
         return object;
     }
+    T findById(ID id) {
+        return map.get(id);
+    }
     void deleteByid(ID id) {
         map.remove(id);
     }
