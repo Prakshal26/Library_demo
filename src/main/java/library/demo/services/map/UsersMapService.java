@@ -2,11 +2,13 @@ package library.demo.services.map;
 
 import library.demo.model.Users;
 import library.demo.services.UsersService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile("default")
 public class UsersMapService extends AbstractService<Users, Long> implements UsersService {
 
     @Override

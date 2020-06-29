@@ -1,21 +1,22 @@
-package library.demo.dataloader;
+package library.demo.bootstrap;
 
 import library.demo.model.Books;
 import library.demo.model.Users;
 import library.demo.services.BooksService;
 import library.demo.services.UsersService;
-import library.demo.services.map.BooksMapService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class BootStrap implements CommandLineRunner {
+public class DataLoader implements CommandLineRunner {
 
     private final BooksService booksService;
     private final UsersService usersService;
 
 
-    public BootStrap(BooksService booksService, UsersService usersService) {
+    @Autowired
+    public DataLoader(BooksService booksService, UsersService usersService) {
         this.booksService = booksService;
         this.usersService = usersService;
     }
@@ -34,16 +35,10 @@ public class BootStrap implements CommandLineRunner {
         users.setFirstName("Prakshal");
         users.setLastName("Jain");
         users.setPassword("12345678");
-        users.setBooks(books);
+     //   users.setBooks(books);
 
         usersService.save(users);
 
-        Users users1 = usersService.findById(1L);
-        System.out.println(users1.getFirstName());
-        System.out.println(users1.getBooks().getBookName());
-
-        Books bookk = booksService.findById(1L);
-        System.out.println(bookk.getBookName());
 
     }
 }

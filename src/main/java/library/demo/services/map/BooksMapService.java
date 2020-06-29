@@ -2,11 +2,13 @@ package library.demo.services.map;
 
 import library.demo.model.Books;
 import library.demo.services.BooksService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
+@Profile("default")
 public class BooksMapService extends AbstractService<Books,Long> implements BooksService {
 
     @Override

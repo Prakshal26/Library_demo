@@ -1,14 +1,21 @@
 package library.demo.model;
 
+import javax.persistence.*;
+
+@Entity
 public class Users extends BaseEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
 
     private String firstName;
     private String lastName;
 
     private String password;
 
-
-    private Books books;
+   // @OneToOne
+    //private Books books;
 
     public String getFirstName() {
         return firstName;
@@ -34,11 +41,11 @@ public class Users extends BaseEntity {
         this.password = password;
     }
 
-    public Books getBooks() {
-        return books;
-    }
+    //public Books getBooks() {
+      //  return books;
+    //}
 
-    public void setBooks(Books books) {
-        this.books = books;
-    }
+    //public void setBooks(Books books) {
+       // this.books = books;
+    //}
 }
