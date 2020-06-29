@@ -1,18 +1,16 @@
 package library.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Books extends BaseEntity {
 
-
-
     private Long price;
     private String bookName;
     //private Genre genre;
+
+    @ManyToOne
+    private Users users;
 
 
 
@@ -30,5 +28,13 @@ public class Books extends BaseEntity {
 
     public void setBookName(String bookName) {
         this.bookName = bookName;
+    }
+
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
     }
 }
