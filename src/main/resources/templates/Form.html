@@ -5,8 +5,9 @@
     <title>Form</title>
 </head>
 <body>
-<form th:object="${book}" th:action ="${/users/}" method = "post">
-<input type="hidden" th:field="*{id}">
+<form th:object="${book}" th:action ="@{/book/}" method = "post">
+    Price: <input type="text" th:field="*{price}" /><br>
+   BookName <input type="text" th:field="*{bookName}"/><br>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>

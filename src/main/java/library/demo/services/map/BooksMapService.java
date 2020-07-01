@@ -1,5 +1,6 @@
 package library.demo.services.map;
 
+import library.demo.command.BookCommand;
 import library.demo.model.Books;
 import library.demo.services.BooksService;
 import org.springframework.context.annotation.Profile;
@@ -34,6 +35,11 @@ public class BooksMapService extends AbstractService<Books,Long> implements Book
     @Override
     public void delete(Books object) {
         super.delete(object);
+    }
+
+    @Override
+    public void saveBookCommand(BookCommand command) {
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package library.demo.services.usingservice;
 
+import library.demo.command.BookCommand;
 import library.demo.model.Books;
 import library.demo.repositories.BooksRepository;
 import library.demo.services.BooksService;
@@ -61,5 +62,20 @@ public class BooksSDJpaService implements BooksService {
     @Override
     public String Test() {
         return "TEST";
+    }
+
+    /*
+    Similar to Bootstrap class where we were storing the book. Similarly
+    we are getting data from user and here we have created one more book object and
+    storing the data.
+     */
+    @Override
+    public void saveBookCommand(BookCommand command) {
+
+        Books newbook = new Books();
+        newbook.setPrice(command.getPrice());
+        newbook.setBookName(command.getBookName());
+
+        booksRepository.save(newbook);
     }
 }

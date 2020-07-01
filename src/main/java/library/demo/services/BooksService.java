@@ -1,5 +1,6 @@
 package library.demo.services;
 
+import library.demo.command.BookCommand;
 import library.demo.model.Books;
 
 import java.util.Set;
@@ -20,6 +21,8 @@ public interface BooksService extends CurdService<Books,Long> {
 
     @Override
     void delete(Books object);
+
+    void saveBookCommand(BookCommand command);
 
     @Override
     String Test();
