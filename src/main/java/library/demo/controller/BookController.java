@@ -22,17 +22,27 @@ public class BookController {
         this.booksService = booksService;
     }
 
-    @RequestMapping("/Book")
+    /*
+    Whenever user will type localhost:8080/book in browser this request mapping will be called.
+    And in this function we are returning to Book so it will call Book.html page whenever someone
+    types the url as /book.
+     */
+    @RequestMapping("/book")
     public String displayAllBooks(Model model) {
+        /*
+    In html file it will fetch/return data to this mapping "books".
+    Means whereever there is books in html it will call this function.
+    Or whereever in html it needs data related to books it will take from this function.
+     */
         model.addAttribute("books",booksService.findAll());
-
+//It will call return to the page Book.html
         return "Book";
     }
 /*
 We are passing user id from user.html. We will display only that book which is associated with the
 passsed user id.
  */
-    @RequestMapping("/Book/{id}")
+    @RequestMapping("/book/{id}")
     public String test(@PathVariable String id, Model model) {
 
         model.addAttribute("test",booksService.Test());
@@ -45,12 +55,13 @@ passsed user id.
     and in form feild we are giving book attributes by *{price} so when ever user will enter data there
     it will be stored there and wehn he will click submit it will go to post i.e in book.
      */
-    @RequestMapping("/Book/new")
+    @RequestMapping("/book/new")
     public String addBook(Model model) {
         model.addAttribute("book",new BookCommand());
         return "Form";
     }
 /*
+On SUbmitting the form we will be re-directed here.
 As user has entered the data and present in *{price} so here we will get that model
 and store the books.
  */
@@ -61,6 +72,20 @@ and store the books.
     /*
     After the data is stored redirect the user to this page where he can see the list of books.
      */
-        return "redirect:/Book";
+        return "redirect:/book";
+    }
+
+    @RequestMapping("book/{id}/delete")
+    public String deleteBook(@PathVariable String id) {
+
+        booksService.deleteByid(Long.valueOf(id));
+        return "redirect:/book";
+    }
+
+    @RequestMapping("book/{id}/update")
+    public String updateBook(@PathVariable String id, Model model) {
+
+        model.addAttribute("book",booksService.findById(Long.valueOf(id)));
+        return "Form";
     }
 }

@@ -73,6 +73,13 @@ public class BooksSDJpaService implements BooksService {
     public void saveBookCommand(BookCommand command) {
 
         Books newbook = new Books();
+        /*
+        Here we are storing Id manually as we have created a link called update, which
+        will update the existing book record. So we do not want to create a new ID when
+        someone click on update.
+        instead we are using the same id and just updating price and bookname.
+         */
+        newbook.setId(command.getId());
         newbook.setPrice(command.getPrice());
         newbook.setBookName(command.getBookName());
 

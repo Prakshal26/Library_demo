@@ -11,6 +11,7 @@ import lombok.Setter;
 @NoArgsConstructor
 public class BookCommand {
 
+    private Long id;
     private Long price;
     private String bookName;
    // private Users users;

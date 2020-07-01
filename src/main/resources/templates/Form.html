@@ -5,7 +5,9 @@
     <title>Form</title>
 </head>
 <body>
+<!-- When we will submit it will go to mapping corresponding to book-->
 <form th:object="${book}" th:action ="@{/book/}" method = "post">
+    <input type="hidden" th:field="*{id}"/>
     Price: <input type="text" th:field="*{price}" /><br>
    BookName <input type="text" th:field="*{bookName}"/><br>
 <button type="submit" class="btn btn-primary">Submit</button>

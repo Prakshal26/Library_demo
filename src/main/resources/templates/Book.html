@@ -11,6 +11,11 @@
         <td th:text="${book.id}">1</td>
         <td th:text="${book.bookName}">1</td>
         <td th:text="${book.price}">Joe</td>
+        <!--A new link is added with delete.When user click delete it will pass book id to
+         be deleted to the BookController. It will go to /book/1/delete
+         From there we will delete book with that bookis-->
+        <td><a href="#" th:href="@{'/book/' + ${book.id} +'/delete'}">Delete</a></td>>
+        <td><a href="#" th:href="@{'/book/' + ${book.id} +'/update'}">Update</a></td>>
     </tr>
 </table>
 
