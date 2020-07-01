@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Users</title>
+</head>
+<body>
+<table>
+    <!--/*@thymesVar id="users" type="library.demo.model.Users"*/-->
+    <tr th:each="user:${users}">
+        <td th:text="${user.firstName}">1</td>
+        <td th:text="${user.lastName}">1</td>
+        <td th:text="${user.password}">Joe</td>
+        <!-- User can have multiple books associated with it. SO we are displaying
+        each book associated with that particular user-->
+        <td th:each="book : ${user.books}" th:text="${book.getBookName()}">Joe</td>
+        <!--There are multiple user and each user have some specific books. We will display
+        the book associated with that user. We will pass user id from there to Book controller
+        and book controller will pick that id and will display book associated with that id-->
+        <td><a href="#" th:href="@{'/Book/' + ${user.id}}">Book Linked</a> </td>
+    </tr>
+</table>
+</body>
+</html>

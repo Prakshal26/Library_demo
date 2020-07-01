@@ -10,4 +10,5 @@ public interface CurdService <T , ID> {
     void deleteByid(ID id);
     void delete(T object);
     String Test ();
+
 }

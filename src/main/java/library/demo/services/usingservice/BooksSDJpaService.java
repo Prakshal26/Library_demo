@@ -60,6 +60,6 @@ public class BooksSDJpaService implements BooksService {
 
     @Override
     public String Test() {
-        return null;
+        return "TEST";
     }
 }
