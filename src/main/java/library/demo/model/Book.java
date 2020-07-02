@@ -3,15 +3,20 @@ package library.demo.model;
 import javax.persistence.*;
 
 @Entity
-public class Books extends BaseEntity {
+public class Book extends BaseEntity {
 
     private Long price;
     private String bookName;
     //private Genre genre;
 
     @ManyToOne
-    private Users users;
+    private Owner owner;
 
+    @ManyToOne
+    private BookType bookType;
+
+    @ManyToOne
+    private Issue issue;
 
 
     public Long getPrice() {
@@ -30,11 +35,11 @@ public class Books extends BaseEntity {
         this.bookName = bookName;
     }
 
-    public Users getUsers() {
-        return users;
+    public Owner getOwner() {
+        return owner;
     }
 
-    public void setUsers(Users users) {
-        this.users = users;
+    public void setOwner(Owner owner) {
+        this.owner = owner;
     }
 }

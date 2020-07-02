@@ -2,12 +2,12 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>List Of books</title>
+    <title>List Of book</title>
 </head>
 <body>
 <h3 th:text="${test}">Test</h3>
 <table>
-    <tr th:each="book:${books}">
+    <tr th:each="book:${book}">
         <td th:text="${book.id}">1</td>
         <td th:text="${book.bookName}">1</td>
         <td th:text="${book.price}">Joe</td>

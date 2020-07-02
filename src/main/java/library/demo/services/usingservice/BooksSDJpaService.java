@@ -1,7 +1,7 @@
 package library.demo.services.usingservice;
 
 import library.demo.command.BookCommand;
-import library.demo.model.Books;
+import library.demo.model.Book;
 import library.demo.repositories.BooksRepository;
 import library.demo.services.BooksService;
 import org.springframework.context.annotation.Profile;
@@ -22,17 +22,17 @@ public class BooksSDJpaService implements BooksService {
     }
 
     @Override
-    public Set<Books> findAll() {
+    public Set<Book> findAll() {
 
-        Set<Books> books = new HashSet<>();
+        Set<Book> books = new HashSet<>();
         booksRepository.findAll().forEach(books::add);
 
         return books;
     }
 
     @Override
-    public Books findById(Long aLong) {
-        Optional<Books> optionalOwner = booksRepository.findById(aLong);
+    public Book findById(Long aLong) {
+        Optional<Book> optionalOwner = booksRepository.findById(aLong);
 
         if(optionalOwner.isPresent()) {
             return optionalOwner.get();
@@ -42,7 +42,7 @@ public class BooksSDJpaService implements BooksService {
     }
 
     @Override
-    public Books save(Books object) {
+    public Book save(Book object) {
         return booksRepository.save(object);
     }
 
@@ -54,7 +54,7 @@ public class BooksSDJpaService implements BooksService {
     }
 
     @Override
-    public void delete(Books object) {
+    public void delete(Book object) {
         booksRepository.delete(object);
 
     }
@@ -72,7 +72,7 @@ public class BooksSDJpaService implements BooksService {
     @Override
     public void saveBookCommand(BookCommand command) {
 
-        Books newbook = new Books();
+        Book newbook = new Book();
         /*
         Here we are storing Id manually as we have created a link called update, which
         will update the existing book record. So we do not want to create a new ID when

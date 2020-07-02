@@ -1,20 +1,26 @@
 package library.demo.model;
 
+import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Date;
 
+@Entity
 public class Issue extends BaseEntity{
 
-    private Books books;
 
     private Date Issuedate;
     private Long fine;
 
-    public Books getBooks() {
-        return books;
+
+    @OneToMany(mappedBy = "issue")
+    private Book book;
+
+    public Book getBook() {
+        return book;
     }
 
-    public void setBooks(Books books) {
-        this.books = books;
+    public void setBook(Book book) {
+        this.book = book;
     }
 
     public Date getIssuedate() {

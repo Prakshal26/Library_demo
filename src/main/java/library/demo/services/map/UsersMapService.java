@@ -1,6 +1,6 @@
 package library.demo.services.map;
 
-import library.demo.model.Users;
+import library.demo.model.Owner;
 import library.demo.services.UsersService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -9,15 +9,15 @@ import java.util.Set;
 
 @Service
 @Profile("default")
-public class UsersMapService extends AbstractService<Users, Long> implements UsersService {
+public class UsersMapService extends AbstractService<Owner, Long> implements UsersService {
 
     @Override
-    public Set<Users> findAll() {
+    public Set<Owner> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Users save(Users object) {
+    public Owner save(Owner object) {
         return super.save(object);
     }
 
@@ -27,12 +27,12 @@ public class UsersMapService extends AbstractService<Users, Long> implements Use
     }
 
     @Override
-    public Users findById(Long aLong) {
+    public Owner findById(Long aLong) {
         return super.findById(aLong);
     }
 
     @Override
-     public void delete(Users object) {
+     public void delete(Owner object) {
         super.delete(object);
     }
 

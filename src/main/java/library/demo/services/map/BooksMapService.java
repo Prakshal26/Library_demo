@@ -1,7 +1,7 @@
 package library.demo.services.map;
 
 import library.demo.command.BookCommand;
-import library.demo.model.Books;
+import library.demo.model.Book;
 import library.demo.services.BooksService;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
@@ -10,20 +10,20 @@ import java.util.Set;
 
 @Service
 @Profile("default")
-public class BooksMapService extends AbstractService<Books,Long> implements BooksService {
+public class BooksMapService extends AbstractService<Book,Long> implements BooksService {
 
     @Override
-    public Set<Books> findAll() {
+    public Set<Book> findAll() {
         return super.findAll();
     }
 
     @Override
-    public Books save(Books object) {
+    public Book save(Book object) {
         return super.save(object);
     }
 
     @Override
-    public Books findById(Long aLong) {
+    public Book findById(Long aLong) {
         return super.findById(aLong);
     }
 
@@ -33,7 +33,7 @@ public class BooksMapService extends AbstractService<Books,Long> implements Book
     }
 
     @Override
-    public void delete(Books object) {
+    public void delete(Book object) {
         super.delete(object);
     }
 

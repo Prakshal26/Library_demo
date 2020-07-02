@@ -1,16 +1,12 @@
 package library.demo.bootstrap;
 
-import library.demo.model.Books;
-import library.demo.model.Users;
+import library.demo.model.Book;
+import library.demo.model.Owner;
 import library.demo.services.BooksService;
 import library.demo.services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
-
-import javax.swing.text.html.parser.Entity;
-import java.util.HashSet;
-import java.util.Set;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -30,29 +26,29 @@ public class DataLoader implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-        Users users1 = new Users();
-        users1.setFirstName("Prakshal");
-        users1.setLastName("Jain");
-        users1.setPassword("12345678");
+        Owner owner1 = new Owner();
+        owner1.setFirstName("Prakshal");
+        owner1.setLastName("Jain");
+        owner1.setPassword("12345678");
 
 
-        Books books1 =new Books();
-        books1.setBookName("ML Agarwal");
-        books1.setPrice(500L);
-        books1.setUsers(users1);
+        Book book1 =new Book();
+        book1.setBookName("ML Agarwal");
+        book1.setPrice(500L);
+        book1.setOwner(owner1);
 
-        users1.getBooks().add(books1);
+        owner1.getBooks().add(book1);
 
-        Books books2 = new Books();
-        books2.setBookName("RS AGARWAL");
-        books2.setPrice(500L);
-        books2.setUsers(users1);
+        Book book2 = new Book();
+        book2.setBookName("RS AGARWAL");
+        book2.setPrice(500L);
+        book2.setOwner(owner1);
 
-        users1.getBooks().add(books2);
+        owner1.getBooks().add(book2);
 
-        usersService.save(users1);
-        booksService.save(books1);
-        booksService.save(books2);
+        usersService.save(owner1);
+        booksService.save(book1);
+        booksService.save(book2);
 
         //Users userTest = books1.getUsers();
         //System.out.println(userTest.getFirstName());
@@ -66,20 +62,20 @@ public class DataLoader implements CommandLineRunner {
         //}
 
 
-        Users users2 = new Users();
-        users2.setFirstName("Ram");
-        users2.setLastName("Bharosey");
-        users2.setPassword("Jai Bholey");
+        Owner owner2 = new Owner();
+        owner2.setFirstName("Ram");
+        owner2.setLastName("Bharosey");
+        owner2.setPassword("Jai Bholey");
 
-        Books books3 = new Books();
-        books3.setBookName("Dalal");
-        books3.setPrice(50L);
-        books3.setUsers(users2);
+        Book book3 = new Book();
+        book3.setBookName("Dalal");
+        book3.setPrice(50L);
+        book3.setOwner(owner2);
 
-        users2.getBooks().add(books3);
+        owner2.getBooks().add(book3);
 
-        usersService.save(users2);
-        booksService.save(books3);
+        usersService.save(owner2);
+        booksService.save(book3);
     }
 }
 

@@ -1,26 +1,26 @@
 package library.demo.services;
 
 import library.demo.command.BookCommand;
-import library.demo.model.Books;
+import library.demo.model.Book;
 
 import java.util.Set;
 
-public interface BooksService extends CurdService<Books,Long> {
+public interface BooksService extends CurdService<Book,Long> {
 
     @Override
-    Set<Books> findAll();
+    Set<Book> findAll();
 
     @Override
-    Books findById(Long aLong);
+    Book findById(Long aLong);
 
     @Override
-    Books save(Books object);
+    Book save(Book object);
 
     @Override
     void deleteByid(Long aLong);
 
     @Override
-    void delete(Books object);
+    void delete(Book object);
 
     void saveBookCommand(BookCommand command);
 

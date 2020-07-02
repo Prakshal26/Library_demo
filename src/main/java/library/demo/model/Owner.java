@@ -5,16 +5,18 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class Users extends BaseEntity {
+public class Owner extends BaseEntity {
 
 
     private String firstName;
     private String lastName;
+    private String address;
 
-    private String password;
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
+    private Set<Book> books = new HashSet<>();
 
-    @OneToMany(mappedBy = "users")
-    private Set<Books> books = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL,mappedBy = "owner")
+    private Set<Visit> visits =new HashSet<>();
 
     public String getFirstName() {
         return firstName;
@@ -32,19 +34,19 @@ public class Users extends BaseEntity {
         this.lastName = lastName;
     }
 
-    public String getPassword() {
-        return password;
+    public String getAddress() {
+        return address;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Set<Books> getBooks() {
+    public Set<Book> getBooks() {
         return books;
     }
 
-    public void setBooks(Set<Books> books) {
+    public void setBooks(Set<Book> books) {
         this.books = books;
     }
 }

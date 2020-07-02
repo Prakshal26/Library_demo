@@ -1,7 +1,6 @@
 package library.demo.services.usingservice;
 
-import library.demo.model.Books;
-import library.demo.model.Users;
+import library.demo.model.Owner;
 import library.demo.repositories.UsersRepository;
 import library.demo.services.UsersService;
 import org.springframework.context.annotation.Profile;
@@ -21,16 +20,16 @@ public class UsersSDJpaService implements UsersService {
     }
 
     @Override
-    public Set<Users> findAll() {
-        Set<Users> users = new HashSet<>();
+    public Set<Owner> findAll() {
+        Set<Owner> users = new HashSet<>();
         usersRepository.findAll().forEach(users::add);
 
         return users;
     }
 
     @Override
-    public Users findById(Long aLong) {
-        Optional<Users> optionalOwner = usersRepository.findById(aLong);
+    public Owner findById(Long aLong) {
+        Optional<Owner> optionalOwner = usersRepository.findById(aLong);
 
         if(optionalOwner.isPresent()) {
             return optionalOwner.get();
@@ -40,7 +39,7 @@ public class UsersSDJpaService implements UsersService {
     }
 
     @Override
-    public Users save(Users object) {
+    public Owner save(Owner object) {
         return usersRepository.save(object);
     }
 
@@ -51,7 +50,7 @@ public class UsersSDJpaService implements UsersService {
     }
 
     @Override
-    public void delete(Users object) {
+    public void delete(Owner object) {
         usersRepository.delete(object);
 
     }

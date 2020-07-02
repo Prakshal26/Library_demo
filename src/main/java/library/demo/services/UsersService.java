@@ -1,25 +1,25 @@
 package library.demo.services;
 
-import library.demo.model.Users;
+import library.demo.model.Owner;
 
 import java.util.Set;
 
-public interface UsersService extends CurdService<Users,Long>{
+public interface UsersService extends CurdService<Owner,Long>{
 
     @Override
-    Set<Users> findAll();
+    Set<Owner> findAll();
 
     @Override
-    Users findById(Long aLong);
+    Owner findById(Long aLong);
 
     @Override
-    Users save(Users object);
+    Owner save(Owner object);
 
     @Override
     void deleteByid(Long aLong);
 
     @Override
-    void delete(Users object);
+    void delete(Owner object);
 
     @Override
     String Test();
